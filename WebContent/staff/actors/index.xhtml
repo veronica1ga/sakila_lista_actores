@@ -1,0 +1,55 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Lista de actores</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+
+<h:body>
+	<h2>Base de datos de Actor</h2>
+	<p:linkButton outcome="newActor" value="Insertar actor"
+		style="margin-right:20px;">
+		<f:param name="productId" value="10" />
+	</p:linkButton>
+	<br /><br /><br />
+	<h:form>
+		<p:dataTable value="#{actorBean.actorList}" var="actor" rows="10"
+			paginator="true"
+			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="5,10,15">
+
+			<f:facet name="header">Listado de Actores</f:facet>
+
+			<p:column headerText="Id">
+				<h:outputText value="#{actor.actorId}" />
+			</p:column>
+
+			<p:column headerText="Nombre">
+				<h:outputText value="#{actor.firstName}" />
+			</p:column>
+
+			<p:column headerText="Apellidos">
+				<h:outputText value="#{actor.lastName}" />
+			</p:column>>
+
+                <f:facet name="paginatorTopLeft">
+				<p:commandButton type="button" icon="pi pi-refresh" />
+			</f:facet>
+
+			<f:facet name="paginatorBottomRight">
+				<p:commandButton type="button" icon="pi pi-cloud-upload" />
+			</f:facet>
+
+
+		</p:dataTable>
+	</h:form>
+
+</h:body>
+</html>

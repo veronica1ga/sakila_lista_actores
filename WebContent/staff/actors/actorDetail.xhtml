@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Actor insertado</title>
+	<h:outputStylesheet library="css" name="main.css" />
+</h:head>
+<h:body>
+	<f:facet name="header">Listado de Actores</f:facet>
+	<p>Insertado actor con los siguientes datos:</p>
+
+	<div>
+		Nombre: 
+		<h:outputText for="txtFirstName" value="#{actorBean.firstName}" />
+	</div>
+	<div>
+		Apellidos:
+		<h:outputText for="txtLastName" value="#{actorBean.lastName}" />
+	</div>
+<br /><br />
+<p:linkButton outcome="index" value="Volver a la lista"
+		style="margin-right:20px;">
+		<f:param name="productId" value="10" />
+	</p:linkButton>
+
+</h:body>
+</html>

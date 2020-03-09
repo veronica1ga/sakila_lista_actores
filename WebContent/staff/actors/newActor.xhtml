@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Nuevo actor</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+		<h:panelGrid id="pnlActor" columns="3" cellpadding="5">
+			<f:facet name="headActorer">
+				<h:outputText value="Nuevo actor" />
+			</f:facet>
+			<h:outputLabel for="txtFirstName" value="Nombre" />
+			<h:inputText id="txtFirstName" value="${actorBean.firstName}" />
+			<h:message for="txtFirstName" style="color:red;margin:8px;" />
+			<h:outputLabel for="txtLastName" value="Apellidos" />
+			<h:inputText id="txtLastName" value="${actorBean.lastName}" />
+			<h:message for="txtLastName" style="color:blue;margin:8px;" />
+			<h:commandButton value="Save" action="#{actorBean.save()}" />
+		</h:panelGrid>
+	</h:form>
+	<br /><br />
+<p:linkButton outcome="index" value="Volver a la lista"
+		style="margin-right:20px;">
+		<f:param name="productId" value="10" />
+	</p:linkButton>
+</h:body>
+</html>
